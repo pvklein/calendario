@@ -1,0 +1,24 @@
+
+.fondo-gris{
+    background-color: #ece9e9;
+}
+
+.mes{
+    background-color: #e12b61;
+    color: white;
+    text-align: center;
+}
+
+.cabecera{
+    background-color: #f0638b;
+    margin: 10px;
+    color: white;
+    text-align: center;
+}
+
+.fecha{
+    background-color: white;
+    margin: 10px;
+    color:#dadada;
+    height: 150px;
+}
