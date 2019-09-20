@@ -3,6 +3,22 @@
     background-color: #ece9e9;
 }
 
+.fondo-oscuro{
+    background-color: #dad7d7; 
+}
+
+.fondo-claro{
+    background-color: white;
+}
+
+.letra-oscura{
+    color:#7c7c7c;
+}
+
+.letra-clara{
+    color:#bdbcbc;
+}
+
 .mes{
     background-color: #e12b61;
     color: white;
@@ -16,10 +32,9 @@
     text-align: center;
 }
 
-.fecha{
-    background-color: white;
-    margin: 10px;
-    color:#dadada;
+.fecha{    
+    margin: 10px;    
+    font-weight: bold;
     height: 150px;
 }
 

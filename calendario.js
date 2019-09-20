@@ -50,7 +50,7 @@ function dibuja_dias(my_last_next)
     $('#mesano').append('<div class="col"><h1>'+monthNames[my_last_next[4]-1]+' '+my_last_next[5]+'</h1></div>');
 
     var array_enmes=[];
-    array_enmes.length=84;
+    array_enmes.length=86;
     array_enmes=array_diasmes(my_last_next);    
     //console.log(array_enmes);
 
@@ -61,7 +61,28 @@ function dibuja_dias(my_last_next)
         columnas=columnas+'<div class="row">';
         for (i=1;i<8;i++)
         {
-            columnas=columnas+'<div name="midia" id="'+("0"+array_enmes[j*7+i].toString()).slice(-2)+array_enmes[j*7+i+42].toString()+'" class="col-sm col-1 fecha"><h1>'+array_enmes[j*7+i]+'</h1></br></div>';
+            if (i<6)
+            {                
+                if (j*7+i<array_enmes[85] || j*7+i>=array_enmes[86])
+                {
+                    columnas=columnas+'<div name="midia" id="'+("0"+array_enmes[j*7+i].toString()).slice(-2)+array_enmes[j*7+i+42].toString()+'" class="col-sm col-1 fecha fondo-claro letra-clara"><h1>'+array_enmes[j*7+i]+'</h1></br></div>';
+                }
+                else
+                {
+                    columnas=columnas+'<div name="midia" id="'+("0"+array_enmes[j*7+i].toString()).slice(-2)+array_enmes[j*7+i+42].toString()+'" class="col-sm col-1 fecha fondo-claro letra-oscura"><h1>'+array_enmes[j*7+i]+'</h1></br></div>';
+                }
+            }
+            else
+            {
+                if (j*7+i<array_enmes[85] || j*7+i>=array_enmes[86])
+                {
+                    columnas=columnas+'<div name="midia" id="'+("0"+array_enmes[j*7+i].toString()).slice(-2)+array_enmes[j*7+i+42].toString()+'" class="col-sm col-1 fecha fondo-oscuro letra-clara"><h1>'+array_enmes[j*7+i]+'</h1></br></div>';
+                }
+                else
+                {
+                    columnas=columnas+'<div name="midia" id="'+("0"+array_enmes[j*7+i].toString()).slice(-2)+array_enmes[j*7+i+42].toString()+'" class="col-sm col-1 fecha fondo-oscuro letra-oscura"><h1>'+array_enmes[j*7+i]+'</h1></br></div>';
+                }
+            }
         } 
         columnas=columnas+'</div>';
     }
@@ -74,7 +95,7 @@ function array_diasmes(my_last_next)
     var month=my_last_next[4];
     var year=my_last_next[5];
     var array_mes=[];
-    array_mes.length=84; 
+    array_mes.length=86; 
 
     if (month==1)
     {
@@ -101,7 +122,7 @@ function array_diasmes(my_last_next)
         array_mes[i]=days_inlastmonth-firstDaymonth+i+1;
         array_mes[i+42]=("0"+my_last_next[0].toString()).slice(-2)+my_last_next[1].toString()
    }
-
+   array_mes[85]=firstDaymonth;
    var j=1;
    for (var i=firstDaymonth;i<days_inmonth+firstDaymonth;i++)
     {
@@ -109,6 +130,7 @@ function array_diasmes(my_last_next)
         array_mes[i+42]=("0"+my_last_next[4].toString()).slice(-2)+my_last_next[5].toString()
         j++;
     }
+    array_mes[86]=days_inmonth+firstDaymonth;
     j=1;
     for (var i=days_inmonth+firstDaymonth;i<43;i++)
     {
@@ -216,6 +238,9 @@ function Cargar_modal(miid)
                         else
                         {
                             $('#myModal .modal-body').append(value['titulo']);                         
+                            $('#myModal .modal-body').append("</br></br>");
+                            $('#myModal .modal-body').append("Horario: 17:30 - 19:30</br>");
+                            $('#myModal .modal-body').append("Descripción: "+value['descripcion']+"</br></br>");
                             visible=true;
                         }
                         //alert(value['titulo']);                                                                       
